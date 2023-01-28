@@ -10,7 +10,7 @@ import SwiftUI
 extension Color {
    static var blueTopColor = Color("blueWeatherColorTop")
     static var blueMiddlecolor =  Color("blueWeatherColorMiddle")
-}
+} 
 
 
 extension Image {

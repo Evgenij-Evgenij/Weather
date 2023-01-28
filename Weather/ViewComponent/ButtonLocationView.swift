@@ -20,7 +20,7 @@ struct ButtonLocationView: View {
             }
             
             Text(viewModel.city)
-            
+             
             Spacer()
             
             NavigationLink {

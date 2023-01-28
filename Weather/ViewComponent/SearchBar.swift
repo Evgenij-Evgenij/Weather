@@ -18,7 +18,7 @@ struct SearchBar: View {
                 Image(systemName: "chevron.left")
                     .font(.title2)
                     .onTapGesture {
-                        dismiss()
+                        dismiss() 
                     }
                 
                 TextField(title, text: $viewModel.city)

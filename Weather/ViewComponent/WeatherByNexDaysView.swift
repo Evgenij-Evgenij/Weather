@@ -20,7 +20,7 @@ struct WeatherByNexDaysView: View {
                                              icon: dayWeather.weather.count > 0 ? dayWeather.weather[0].icon : "sun.max")
                                 .environmentObject(viewModel)
                         }
-                        .foregroundColor(.black)
+                        .foregroundColor(.black) 
                     }
                 }
             }

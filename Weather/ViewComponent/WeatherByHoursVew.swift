@@ -50,7 +50,7 @@ struct WeatherPerHour: View {
                 .padding(.bottom, 15)
             
             Image(systemName: image)
-            Text(degree)
+            Text(degree) 
         }
         .foregroundColor(.white)
         .font(.title2)

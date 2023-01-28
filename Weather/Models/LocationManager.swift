@@ -18,7 +18,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     let geocoder = CLGeocoder()
     var placemark: CLPlacemark?
-    
+     
     override init() {
         super.init()
         locationManager.delegate = self

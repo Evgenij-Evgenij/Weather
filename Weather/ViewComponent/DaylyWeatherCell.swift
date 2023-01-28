@@ -35,6 +35,6 @@ struct DaylyWeatherCell: View {
 struct DaylyWeatherCell_Previews: PreviewProvider {
     static var previews: some View {
         DaylyWeatherCell(dayWeek: "HB", temperetureMin: "0", temeratureMax: "10", icon: "01d")
-            .environmentObject(ViewModel())
+            .environmentObject(ViewModel()) 
     }
 }

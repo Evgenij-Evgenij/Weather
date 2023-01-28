@@ -199,7 +199,7 @@ final class ViewModel: ObservableObject {
             case .failure(let err):
                 print(err)
             }
-        }
+        } 
     }
     
 //    private func getLocationName() -> String {

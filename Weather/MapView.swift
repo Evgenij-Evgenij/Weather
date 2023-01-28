@@ -13,7 +13,7 @@ struct MapView: View {
     
     var body: some View {
         VStack {
-         
+          
             Map(coordinateRegion: $map, showsUserLocation: true)
         }
         .overlay(content: {

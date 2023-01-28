@@ -28,7 +28,7 @@ struct Weather: Codable, Identifiable {
         case clouds
         case wind_speed
         case wind_deg
-        case wind_gust
+        case wind_gust 
         case weather
     }
     

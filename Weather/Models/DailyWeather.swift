@@ -24,7 +24,7 @@ struct DailyWeather: Codable, Identifiable {
 //        weather = [WeatherDetail(main: "", description: "", icon: "")]
 //    }
 }
-
+ 
 extension DailyWeather {
     var id: UUID {
         return UUID()

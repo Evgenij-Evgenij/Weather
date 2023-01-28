@@ -18,7 +18,7 @@ struct CurrentWeatherView: View {
                 
                 Text("\(viewModel.tempereture)º")
                     .font(.title.bold())
-            }
+            } 
             
             VStack(alignment: .leading) {
                 CurrentWeatherConditions(image: "thermometer.medium" , condition: "\(viewModel.tempereture)º")

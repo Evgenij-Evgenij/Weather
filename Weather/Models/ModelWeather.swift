@@ -24,7 +24,7 @@ struct ModelWeather: Codable {
 //    struct Daily: Codable {
 //
 //        let dt: Date
-//
+// 
 //        struct Temp: Codable {
 //
 //            let day: Double
