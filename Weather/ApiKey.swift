@@ -13,7 +13,7 @@ struct ApiKey {
     //541000f642b968899e2b401d3112a355
      
     static func getAPIUrl(lat: Double, long: Double) -> String {
-        return "https://api.openweathermap.org/data/3.0/onecall?lat=\(lat)&lon=\(long)&exclude=minutely,alerts&units=metric&appid=\(apiKey)"
+        return "https://api.openweathermap.org/data/3.0/onecall?lat=\(lat)&lon=\(long)&lang=ua&exclude=minutely,alerts&units=metric&appid=\(apiKey)"
     }
 }
 

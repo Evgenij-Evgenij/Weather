@@ -15,9 +15,6 @@ struct CurrentWeatherView: View {
                 viewModel.refreshWeatherIcon(icon: viewModel.weatherIcon)
                     .font(.system(size: 100))
                     .offset(y: -20)
-                
-                Text("\(viewModel.tempereture)º")
-                    .font(.title.bold())
             }
             
             VStack(alignment: .leading) {

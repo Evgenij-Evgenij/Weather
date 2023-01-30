@@ -25,11 +25,11 @@ struct MapView: View {
                             dismiss()
                         }
                         .font(.title.bold())
-                        .padding(40)
-                    
+                        .padding(30)
                 }
                 Spacer()
             }
+            .padding()
         })
         .ignoresSafeArea()
     }

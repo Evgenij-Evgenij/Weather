@@ -22,8 +22,6 @@ struct ButtonLocationView: View {
                 Text(viewModel.city)
             }
             
-            //            Text(viewModel.city == "" ?? viewModel.currentCity )
-            
             Spacer()
             
             NavigationLink {
