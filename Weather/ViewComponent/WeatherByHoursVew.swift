@@ -15,7 +15,7 @@ struct WeatherByHoursVew: View {
                 if let weatherH = viewModel.weather?.hourly {
                     ForEach(weatherH) { hour in
                         VStack(spacing: 5) {
-                            Text(viewModel.getTime(timestamp: hour.dt))
+                            Text("\(viewModel.getTime(timestamp: hour.dt))ºº")
                                 .padding(.bottom, 15)
                             
                             viewModel.refreshWeatherIcon(icon: viewModel.weatherIcon)
@@ -36,7 +36,6 @@ struct WeatherByHoursVew: View {
 struct WeatherByHoursView_Previews: PreviewProvider {
     static var previews: some View {
         WeatherByHoursVew(viewModel: ViewModel())
-            //.background(Color.blue)
     }
 }
 
@@ -50,7 +49,7 @@ struct WeatherPerHour: View {
                 .padding(.bottom, 15)
             
             Image(systemName: image)
-            Text(degree) 
+            Text(degree)
         }
         .foregroundColor(.white)
         .font(.title2)

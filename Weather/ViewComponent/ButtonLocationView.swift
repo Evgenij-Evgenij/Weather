@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ButtonLocationView: View {
     @ObservedObject var viewModel: ViewModel
-    //@State var textLocation: String
-   // var action: (() -> Void)
     var body: some View {
         HStack {
             Button {
@@ -18,9 +16,14 @@ struct ButtonLocationView: View {
             } label: {
                 Image(systemName: "mappin.and.ellipse")
             }
+            if viewModel.city == "" {
+                Text(viewModel.currentCity)
+            } else {
+                Text(viewModel.city)
+            }
             
-            Text(viewModel.city)
-             
+            //            Text(viewModel.city == "" ?? viewModel.currentCity )
+            
             Spacer()
             
             NavigationLink {
@@ -44,6 +47,6 @@ struct ButtonLocation_Previews: PreviewProvider {
     static var previews: some View {
         ButtonLocationView(viewModel: ViewModel())
             .background(Color.blue)
-            
+        
     }
 }

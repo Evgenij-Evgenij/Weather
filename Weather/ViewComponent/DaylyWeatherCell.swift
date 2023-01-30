@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DaylyWeatherCell: View {
-@EnvironmentObject var viewModel: ViewModel
+    @EnvironmentObject var viewModel: ViewModel
     var dayWeek: String
     var temperetureMin: String
     var temeratureMax: String
@@ -16,7 +16,6 @@ struct DaylyWeatherCell: View {
     var body: some View {
         HStack {
             Text(dayWeek.uppercased())
-                
             
             Spacer()
             

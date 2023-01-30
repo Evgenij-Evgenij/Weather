@@ -31,19 +31,6 @@ struct Weather: Codable, Identifiable {
         case wind_gust 
         case weather
     }
-    
-//    init() {
-//       dt = 0
-//        temp = 0.0
-//        pressure = 0
-//        humidity = 0
-//        dew_point = 0.0
-//        clouds = 0
-//        wind_speed = 0.0
-//        wind_deg = 0
-//        wind_gust = 0.0
-//        weather = []
-//    }
 }
 
 extension Weather {

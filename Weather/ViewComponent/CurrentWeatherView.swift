@@ -18,18 +18,15 @@ struct CurrentWeatherView: View {
                 
                 Text("\(viewModel.tempereture)º")
                     .font(.title.bold())
-            } 
+            }
             
             VStack(alignment: .leading) {
                 CurrentWeatherConditions(image: "thermometer.medium" , condition: "\(viewModel.tempereture)º")
                 
-                //viewModel.tempereture
+                CurrentWeatherConditions(image: "humidity.fill", condition: "\(viewModel.humidity)")
                 
-                CurrentWeatherConditions(image: "humidity.fill", condition: "\(viewModel.humidity)%")
-              // Text(viewModel.windSpeed)
                 CurrentWeatherConditions(image: "wind", condition: "\(viewModel.windSpeed)м/с", additionalImag: "arrow.up.forward")
             }
-            
         }
         .foregroundColor(.white)
         .padding()
@@ -39,15 +36,15 @@ struct CurrentWeatherView: View {
 struct CurrentWeatherView_Previews: PreviewProvider {
     static var previews: some View {
         CurrentWeatherView(viewModel: ViewModel())
-            
+        
             .background(Color.blue)
     }
 }
 
 struct CurrentWeatherConditions: View {
     @State var image: String
-     var condition: String
-     var additionalImag: String?
+    var condition: String
+    var additionalImag: String?
     
     var body: some View {
         VStack(alignment: .leading) {

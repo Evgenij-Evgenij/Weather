@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WeatherByNexDaysView: View {
     @ObservedObject var viewModel: ViewModel
+    
     var body: some View {
         VStack {
             ScrollView {
@@ -18,9 +19,11 @@ struct WeatherByNexDaysView: View {
                             DaylyWeatherCell(dayWeek: viewModel.getDayFor(timestamp: dayWeather.dt),
                                              temperetureMin: viewModel.getTempFor(temp: dayWeather.temp.min), temeratureMax: viewModel.getTempFor(temp: dayWeather.temp.max),
                                              icon: dayWeather.weather.count > 0 ? dayWeather.weather[0].icon : "sun.max")
-                                .environmentObject(viewModel)
+                            .environmentObject(viewModel)
+                            .background(self.viewModel.weather?.current.dt == dayWeather.dt ? Color.gray : Color.white)
                         }
-                        .foregroundColor(.black) 
+                        
+                        .foregroundColor(.black)
                     }
                 }
             }

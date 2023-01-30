@@ -11,14 +11,15 @@ import Combine
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
-    
     private let locationManager = CLLocationManager()
     @Published var locationStatus: CLAuthorizationStatus?
-    @Published var lastLocation: CLLocation?
-    
+    var locationCallBack: ((CLLocationCoordinate2D) -> ())?
     let geocoder = CLGeocoder()
     var placemark: CLPlacemark?
-     
+    var latitude = 0.0
+    var longitude = 0.0
+    
+    
     override init() {
         super.init()
         locationManager.delegate = self
@@ -49,18 +50,16 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-        lastLocation = location
+        locationCallBack?(location.coordinate)
+        self.latitude = location.coordinate.latitude
+        self.longitude = location.coordinate.longitude
         print(location.coordinate.latitude.description)
         print(location.coordinate.longitude.description)
     }
-    
-//    func fetchCityAndCountry(completion: @escaping (_ city: String?, _ country:  String?, _ error: Error?) -> ()) {
-//            CLGeocoder().reverseGeocodeLocation(self) { completion($0?.first?.locality, $0?.first?.country, $1) }
-//        }
 }
 
 extension CLLocation {
-    func placemark(completion: @escaping (_ placemark: CLPlacemark?, _ error: Error?) -> ()) {
-        CLGeocoder().reverseGeocodeLocation(self) { completion($0?.first, $1) }
+    func fetchCityAndCountry(completion: @escaping (_ city: String?, _ country:  String?, _ error: Error?) -> ()) {
+        CLGeocoder().reverseGeocodeLocation(self) { completion($0?.first?.locality, $0?.first?.country, $1) }
     }
 }

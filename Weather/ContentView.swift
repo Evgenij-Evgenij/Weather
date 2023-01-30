@@ -3,7 +3,7 @@
 //  Weather
 //
 //  Created by Евгений Воронов on 24.01.2023.
-//
+// current version
 
 import SwiftUI
 
@@ -13,24 +13,27 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-                VStack {
+            VStack {
+                ScrollView {
                     
                     ButtonLocationView(viewModel: viewModel)
                     
-                    
-                    CurrentDayAndDate(currentDay: "ПТ, 20 января")
+                    //----
+                    CurrentDayAndDate(currentDay: viewModel.date)
                     
                     CurrentWeatherView(viewModel: viewModel)
                     
                     WeatherByHoursVew(viewModel: viewModel)
                     
-                    WeatherByNexDaysView(viewModel: viewModel)
-                    
-                    Spacer()
                 }
-                .fullScreenCover(isPresented: $viewModel.isShowMap, content: {
-                    MapView()
-                })
+                
+                WeatherByNexDaysView(viewModel: viewModel)
+                
+                //  Spacer()
+            }
+            .fullScreenCover(isPresented: $viewModel.isShowMap, content: {
+                MapView(viewModel: viewModel)
+            })
             .ignoresSafeArea()
             .background(Color.blueTopColor)
         }
@@ -47,7 +50,7 @@ struct ContentView_Previews: PreviewProvider {
 
 
 struct CurrentDayAndDate: View {
-    @State var currentDay: String
+    var currentDay: String
     var body: some View {
         HStack {
             Text(currentDay)

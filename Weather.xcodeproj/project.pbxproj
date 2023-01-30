@@ -85,13 +85,6 @@
 			name = Location;
 			sourceTree = "<group>";
 		};
-		CE6BE6E029814CFE007EA714 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
 		CE9D647C297F3BAC00AAF06C = {
 			isa = PBXGroup;
 			children = (
@@ -117,7 +110,6 @@
 				CEDB1C5F29800ED600A913EA /* NetworkManager.swift */,
 				CEDB1C612980163200A913EA /* ApiKey.swift */,
 				CE645A502983DED80004A8F9 /* MapView.swift */,
-				CE6BE6E029814CFE007EA714 /* View */,
 				CE66B3BD297FB67D00807A02 /* ViewComponent */,
 				CEDB1C632980766700A913EA /* Models */,
 				CEDB1C6A29808E3300A913EA /* ViewModel */,

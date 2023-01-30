@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension Color {
-   static var blueTopColor = Color("blueWeatherColorTop")
+    static var blueTopColor = Color("blueWeatherColorTop")
     static var blueMiddlecolor =  Color("blueWeatherColorMiddle")
 } 
 
@@ -19,14 +19,4 @@ extension Image {
     static var currentWindIcon = "wind"
 }
 
-//enum Icon {
-//    case currentDegree
-//    case currentWindIcon
-//    
-//    var iconName: String {
-//        switch.self {
-//        case .currentDegree: "thermometer.medium"
-//        case .currentWindIcon: "wind"
-//        }
-//    }
-//}
+

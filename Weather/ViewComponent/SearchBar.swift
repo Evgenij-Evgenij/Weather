@@ -9,21 +9,23 @@ import SwiftUI
 
 struct SearchBar: View {
     @EnvironmentObject var viewModel: ViewModel
-    
     @Environment(\.dismiss) var dismiss
+    
     var title = "Введіть назву міста"
+    
     var body: some View {
         VStack {
             HStack {
                 Image(systemName: "chevron.left")
                     .font(.title2)
                     .onTapGesture {
-                        dismiss() 
+                        dismiss()
                     }
                 
                 TextField(title, text: $viewModel.city)
                     .padding(5)
                     .background(RoundedRectangle(cornerRadius: 5).foregroundColor(.white))
+                    .foregroundColor(.gray .opacity(0.5))
                 
                 Image(systemName: "magnifyingglass")
                 

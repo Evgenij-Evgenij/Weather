@@ -17,14 +17,8 @@ struct DailyWeather: Codable, Identifiable {
         case temp
         case weather
     }
-    
-//    init() {
-//        dt = 0
-//        temp = Tempereture(day: 0.0, min: 0.0, max: 0.0)
-//        weather = [WeatherDetail(main: "", description: "", icon: "")]
-//    }
 }
- 
+
 extension DailyWeather {
     var id: UUID {
         return UUID()
