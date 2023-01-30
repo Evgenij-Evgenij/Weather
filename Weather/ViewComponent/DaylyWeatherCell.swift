@@ -25,8 +25,8 @@ struct DaylyWeatherCell: View {
             
             viewModel.refreshWeatherIcon(icon: icon)
         }
+    
         .font(.title2.bold())
-        .background(Color.white)
         .padding()
     }
 }

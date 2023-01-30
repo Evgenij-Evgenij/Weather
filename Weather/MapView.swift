@@ -16,16 +16,19 @@ struct MapView: View {
             
             Map(coordinateRegion: $viewModel.region, showsUserLocation: true)
         }
+        
         .overlay(content: {
             VStack {
                 HStack {
                     Spacer()
-                    Image(systemName: "multiply")
-                        .onTapGesture {
-                            dismiss()
-                        }
-                        .font(.title.bold())
-                        .padding(30)
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        Image(systemName: "multiply")
+                    })
+                    .foregroundColor(.black)
+                    .font(.title.bold())
+                    .padding(30)
                 }
                 Spacer()
             }

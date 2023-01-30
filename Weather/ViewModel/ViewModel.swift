@@ -11,23 +11,30 @@ import MapKit
 
 final class ViewModel: ObservableObject {
     
+    var myDay = Date()
+    var currentLocationCity = CLLocation(latitude: 0.0, longitude: 0.0)
+    
     @Published var weather: ModelWeather?
     @Published var locationManager = LocationManager()
     @Published var location: CLLocationCoordinate2D?
     @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
     @Published var isShowMap = false
-    var currentLocationCity = CLLocation(latitude: 0.0, longitude: 0.0)
     @Published var currentCity = ""
     @Published var places: [String] = []
-    
     @Published var city = "" {
         didSet {
             getLocation()
-            
         }
     }
     
     // MARK: formating date
+    
+    var currendDateFormatter: DateFormatter {
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE"
+        return formatter
+    }
     
     private var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -172,7 +179,7 @@ final class ViewModel: ObservableObject {
             case .failure(let err):
                 print(err)
             }
-        } 
+        }
     }
     
     // MARK: Icon weather

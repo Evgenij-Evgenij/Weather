@@ -8,7 +8,7 @@
 import Foundation
 
 struct ApiKey {
-    static let apiKey = "61c3043a5d1be3d53542c7f1f88b4792"
+    static let apiKey = "541000f642b968899e2b401d3112a355"
     //61c3043a5d1be3d53542c7f1f88b4792
     //541000f642b968899e2b401d3112a355
      
