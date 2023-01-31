@@ -9,12 +9,12 @@ import SwiftUI
 
 struct MapView: View {
     @Environment(\.dismiss) var dismiss
-    @ObservedObject var viewModel: ViewModel
+    @State var currentregion: MKCoordinateRegion
     
     var body: some View {
         VStack {
             
-            Map(coordinateRegion: $viewModel.region, showsUserLocation: true)
+            Map(coordinateRegion: $currentregion, showsUserLocation: true)
         }
         
         .overlay(content: {
@@ -40,6 +40,6 @@ struct MapView: View {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(viewModel: ViewModel())
+        MapView(currentregion: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)))
     }
 }

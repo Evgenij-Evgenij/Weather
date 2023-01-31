@@ -8,7 +8,7 @@
 import Foundation
 
 class NetworkManager {
-    static func fetchData( urlString: String, complition: @escaping (Result<ModelWeather, NetworkError>)-> Void) {
+    static func fetchData(urlString: String, complition: @escaping (Result<ModelWeather, NetworkError>)-> Void) {
         guard let url = URL(string: urlString) else {
             complition(.failure(.error(err: "Invalid URL")))
             return
@@ -46,6 +46,6 @@ class NetworkManager {
 enum NetworkError: Error {
     case invalidResponse
     case invalidData
-    case error (err: String)
-    case errorDecode (err: String)
+    case error(err: String)
+    case errorDecode(err: String)
 }

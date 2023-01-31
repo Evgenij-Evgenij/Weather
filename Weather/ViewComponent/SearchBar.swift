@@ -11,7 +11,7 @@ struct SearchBar: View {
     @EnvironmentObject var viewModel: ViewModel
     @Environment(\.dismiss) var dismiss
     
-    var title = "Введіть назву міста"
+    var title = "enter the city name"
     
     var body: some View {
         VStack {
@@ -22,22 +22,21 @@ struct SearchBar: View {
                         dismiss()
                     }
                 
-                TextField(title, text: $viewModel.city)
+                TextField(LocalizedStringKey(title), text: $viewModel.searchCity)
+                    .foregroundColor(.gray .opacity(0.5))
                     .padding(5)
                     .background(RoundedRectangle(cornerRadius: 5).foregroundColor(.white))
-                    .foregroundColor(.gray .opacity(0.5))
                 
                 Image(systemName: "magnifyingglass")
-                
             }
             .foregroundColor(.black)
             .padding()
             .background(Color.blueTopColor)
             
             Spacer()
+    
         }
         .navigationBarBackButtonHidden()
-        
     }
 }
 

@@ -16,11 +16,8 @@ struct ButtonLocationView: View {
             } label: {
                 Image(systemName: "mappin.and.ellipse")
             }
-            if viewModel.city == "" {
-                Text(viewModel.currentCity)
-            } else {
-                Text(viewModel.city)
-            }
+            
+            Text(viewModel.searchCity.isEmpty ? viewModel.currentCity : viewModel.searchCity)
             
             Spacer()
             

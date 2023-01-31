@@ -11,12 +11,6 @@ struct DailyWeather: Codable, Identifiable {
     var dt: Int
     var temp: Tempereture
     var weather: [WeatherDetail]
-    
-    enum CodingKey: String {
-        case dt
-        case temp
-        case weather
-    }
 }
 
 extension DailyWeather {

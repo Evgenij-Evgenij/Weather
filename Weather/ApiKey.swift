@@ -2,7 +2,7 @@
 //  APIKey.swift
 //  Weather
 //
-//  Created by Евгений Воронов on 24.01.2023.
+//  Created by Evgenij Voronov on 24.01.2023.
 //
 
 import Foundation

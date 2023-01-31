@@ -1,5 +1,5 @@
 //
-//  DaylyWeatherCell.swift
+//  DailyWeatherCell.swift
 //  Weather
 //
 //  Created by Евгений Воронов on 26.01.2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DaylyWeatherCell: View {
+struct DailyWeatherCell: View {
     @EnvironmentObject var viewModel: ViewModel
     var dayWeek: String
     var temperetureMin: String
@@ -33,7 +33,7 @@ struct DaylyWeatherCell: View {
 
 struct DaylyWeatherCell_Previews: PreviewProvider {
     static var previews: some View {
-        DaylyWeatherCell(dayWeek: "HB", temperetureMin: "0", temeratureMax: "10", icon: "01d")
+        DailyWeatherCell(dayWeek: "HB", temperetureMin: "0", temeratureMax: "10", icon: "01d")
             .environmentObject(ViewModel()) 
     }
 }

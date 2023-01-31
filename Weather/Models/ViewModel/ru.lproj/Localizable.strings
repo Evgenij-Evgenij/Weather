@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  Weather
+
+  Created by Евгений Воронов on 30.01.2023.
+  
+*/
+
+"enter the city name" = "Введите название города";

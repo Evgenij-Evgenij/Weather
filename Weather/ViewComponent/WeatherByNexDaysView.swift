@@ -13,10 +13,10 @@ struct WeatherByNexDaysView: View {
     var body: some View {
         VStack {
             ScrollView {
-                if let weatherDya = viewModel.weather?.daily {
-                    ForEach(weatherDya.prefix(7)) { dayWeather in
+                if let dailyWeather = viewModel.weather?.daily {
+                    ForEach(dailyWeather.prefix(7)) { dayWeather in
                         LazyVStack {
-                            DaylyWeatherCell(dayWeek: viewModel.getDayFor(timestamp: dayWeather.dt),
+                            DailyWeatherCell(dayWeek: viewModel.getDayFor(timestamp: dayWeather.dt),
                                              temperetureMin: viewModel.getTempFor(temp: dayWeather.temp.min), temeratureMax: viewModel.getTempFor(temp: dayWeather.temp.max),
                                              icon: dayWeather.weather.count > 0 ? dayWeather.weather[0].icon : "sun.max")
                             .environmentObject(viewModel)

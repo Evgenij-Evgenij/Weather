@@ -9,7 +9,7 @@ import Foundation
 
 struct ModelWeather: Codable {
     
-    var current: Weather
-    var hourly: [Weather]
-    var daily: [DailyWeather]
+    let current: Weather
+    let hourly: [Weather]
+    let daily: [DailyWeather]
 }

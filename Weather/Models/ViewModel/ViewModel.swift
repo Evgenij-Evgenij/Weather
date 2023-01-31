@@ -15,13 +15,12 @@ final class ViewModel: ObservableObject {
     var currentLocationCity = CLLocation(latitude: 0.0, longitude: 0.0)
     
     @Published var weather: ModelWeather?
-    @Published var locationManager = LocationManager()
-    @Published var location: CLLocationCoordinate2D?
+    private var locationManager = LocationManager()
     @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
     @Published var isShowMap = false
     @Published var currentCity = ""
-    @Published var places: [String] = []
-    @Published var city = "" {
+    @Published var places: [CLPlacemark] = []
+    @Published var searchCity = "" {
         didSet {
             getLocation()
         }
@@ -140,11 +139,10 @@ final class ViewModel: ObservableObject {
     }
     
     private func getLocation(coordinates: CLLocationCoordinate2D? = nil) {
-        if city != "" {
-            CLGeocoder().geocodeAddressString(city) { plasemarks, error in
+        if searchCity != "" {
+            CLGeocoder().geocodeAddressString(searchCity) { plasemarks, error in
                 if let places = plasemarks, let place = places.first {
                     self.getWeather(coord: place.location?.coordinate)
-                    
                 }
             }
         } else {
@@ -157,16 +155,9 @@ final class ViewModel: ObservableObject {
     }
     
     private func getWeather(coord: CLLocationCoordinate2D?) {
-        if let coord = coord {
+        guard let coord = coord else {return}
             let urlString = ApiKey.getAPIUrl(lat: coord.latitude, long: coord.longitude)
-            getWeatherInternal(city: city, for: urlString)
-            print("----\(urlString)----")
-        } else {
-            let urlStr = ApiKey.getAPIUrl(lat: location?.latitude ?? 0, long: location?.longitude ?? 0)
-            getWeatherInternal(city: city, for: urlStr)
-            print("11111---\(urlStr)---11111")
-        }
-        
+            getWeatherInternal(city: searchCity, for: urlString)
     }
     
     private func getWeatherInternal(city: String, for urlString: String) {
@@ -197,7 +188,7 @@ final class ViewModel: ObservableObject {
         case "13d", "13n": return Image(systemName: "cloud.snow")
         case "50d", "50n": return Image(systemName: "cloud.fog")
         default:
-            return  Image(systemName: "sun.max")
+            return Image(systemName: "sun.max")
         }
     }
 }

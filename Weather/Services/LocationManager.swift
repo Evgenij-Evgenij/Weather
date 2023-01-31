@@ -14,10 +14,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
     @Published var locationStatus: CLAuthorizationStatus?
     var locationCallBack: ((CLLocationCoordinate2D) -> ())?
-    let geocoder = CLGeocoder()
-    var placemark: CLPlacemark?
-    var latitude = 0.0
-    var longitude = 0.0
     
     
     override init() {
@@ -26,6 +22,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        
     }
     
     var statusString: String {
@@ -38,7 +35,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         case .authorizedWhenInUse: return "authorizedWhenInUse"
         case .authorizedAlways: return "authorizedAlways"
         case .restricted: return "restricted"
-        case .denied: return "denied"
+        case .denied:
+            return "denied"
+            
         default: return "unknown"
         }
     }
@@ -51,10 +50,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         locationCallBack?(location.coordinate)
-        self.latitude = location.coordinate.latitude
-        self.longitude = location.coordinate.longitude
-        print(location.coordinate.latitude.description)
-        print(location.coordinate.longitude.description)
     }
 }
 
