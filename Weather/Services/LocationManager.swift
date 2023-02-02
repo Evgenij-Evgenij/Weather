@@ -50,11 +50,12 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         locationCallBack?(location.coordinate)
+        locationManager.stopUpdatingLocation()
     }
 }
 
 extension CLLocation {
-    func fetchCityAndCountry(completion: @escaping (_ city: String?, _ country:  String?, _ error: Error?) -> ()) {
+    func fetchCity(completion: @escaping (_ city: String?, _ country:  String?, _ error: Error?) -> ()) {
         CLGeocoder().reverseGeocodeLocation(self) { completion($0?.first?.locality, $0?.first?.country, $1) }
     }
 }

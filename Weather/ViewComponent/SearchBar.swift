@@ -32,9 +32,12 @@ struct SearchBar: View {
             .foregroundColor(.black)
             .padding()
             .background(Color.blueTopColor)
+    
+            SearchPlaces(action: {dismiss()})
+                .environmentObject(viewModel)
             
             Spacer()
-    
+            
         }
         .navigationBarBackButtonHidden()
     }

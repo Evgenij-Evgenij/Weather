@@ -19,7 +19,7 @@ final class ViewModel: ObservableObject {
     @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
     @Published var isShowMap = false
     @Published var currentCity = ""
-    @Published var places: [CLPlacemark] = []
+    @Published var searchPlaces: [CLPlacemark] = []
     @Published var searchCity = "" {
         didSet {
             getLocation()
@@ -143,11 +143,13 @@ final class ViewModel: ObservableObject {
             CLGeocoder().geocodeAddressString(searchCity) { plasemarks, error in
                 if let places = plasemarks, let place = places.first {
                     self.getWeather(coord: place.location?.coordinate)
+                    self.searchPlaces = places
+                    print(places)
                 }
             }
         } else {
-            currentLocationCity.fetchCityAndCountry(completion: { city, country, error in
-                guard let city = city, let _ = country, error == nil else {return}
+            currentLocationCity.fetchCity(completion: { city, _, error in
+                guard let city = city, error == nil else {return}
                 self.currentCity = String(city)
             })
             getWeather(coord: coordinates)
