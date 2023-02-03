@@ -109,7 +109,6 @@
 				CE9D6488297F3BAC00AAF06C /* WeatherApp.swift */,
 				CE9D648A297F3BAC00AAF06C /* ContentView.swift */,
 				CE66B3C0297FC2F800807A02 /* Extension.swift */,
-				CEDB1C5F29800ED600A913EA /* NetworkManager.swift */,
 				CEDB1C612980163200A913EA /* ApiKey.swift */,
 				CE645A502983DED80004A8F9 /* MapView.swift */,
 				CEA0CE10298842F600AA6266 /* Services */,
@@ -133,6 +132,7 @@
 		CEA0CE10298842F600AA6266 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CEDB1C5F29800ED600A913EA /* NetworkManager.swift */,
 				CE6BE6DE29813918007EA714 /* LocationManager.swift */,
 			);
 			path = Services;

@@ -77,7 +77,6 @@ final class ViewModel: ObservableObject {
         guard let weather = weather else {
             return "0"
         }
-        print("Температуа \(weather.current.temp)")
         return getTempFor(temp: weather.current.temp)
         
     }
@@ -96,7 +95,6 @@ final class ViewModel: ObservableObject {
         guard let weather = weather else {
             return "0.0"
         }
-        print("скорость ветра \(weather.current.wind_speed)")
         return String(format: "%0.1f", weather.current.wind_speed)
     }
     
@@ -118,9 +116,10 @@ final class ViewModel: ObservableObject {
     
     init() {
         locationManager.locationCallBack = { [weak self] location in
-            self?.getLocation(coordinates: location)
-            self?.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-            self?.currentLocationCity = CLLocation(latitude: location.latitude, longitude: location.longitude)
+            guard let self = self else {return}
+            self.getLocation(coordinates: location)
+            self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+            self.currentLocationCity = CLLocation(latitude: location.latitude, longitude: location.longitude)
             
         }
         
